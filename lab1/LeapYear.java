@@ -6,6 +6,12 @@ public class LeapYear {
     /** Calls isLeapYear to print correct statement.
      *  @param  year to be analyzed
      */
+    /**
+     * @source
+     * divisible by 400  or
+     * divisible by 4 and not by 100
+     */
+
     public static boolean isLeapYear(int year){
         if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
             return true;
