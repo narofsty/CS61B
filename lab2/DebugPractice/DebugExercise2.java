@@ -47,9 +47,10 @@ public class DebugExercise2 {
             return null;
         }
         int[] returnArray = new int[a.length];
-        for (int i = 0; i < a.length; i += 1) {
+        for (int i = 0; i < a.length; i+=1 ) {
             int biggerValue = max(a[i], b[i]);
             returnArray[i] = biggerValue;
+            returnArray[i] = max(a[i],b[i]);
         }
 
         return returnArray;
@@ -78,8 +79,8 @@ public class DebugExercise2 {
 
 
     public static void main(String[] args) {
-        int[] a = {1, 11, -1, -11};
-        int[] b = {3, -3, 2, -1};
+        int[] a = {1, 11, -1, -11}; //{1, 11, -1, -11}
+        int[] b = {3, -3, 2, -1};   //{3, -3, 2, -1}
 
         int sumOfElementwiseMaxes = sumOfElementwiseMaxes(a, b);
         System.out.println(sumOfElementwiseMaxes);
