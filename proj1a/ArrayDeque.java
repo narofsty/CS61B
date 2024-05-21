@@ -28,11 +28,12 @@ public class ArrayDeque<T> {
     public void addFirst(T item) {
         if (size == items.length) {
             resize(size * 2);
+        }
             items[nextFirst] = item;
             nextFirst = (nextFirst - 1 + items.length) % items.length;
             size++;
         }
-    }
+
 
     public void addLast(T item) {
         if (size == items.length) {
@@ -53,22 +54,23 @@ public class ArrayDeque<T> {
     }
     public void printDeque() {
         for (int i = 0; i < size; i++) {
-            System.out.print(items[i] + " ");
+            int index = (nextFirst + 1 + i) %items.length;
+            System.out.print(items[index] + " ");
         }
         System.out.println();
     }
 
-    public T removFirst() {
-              if (isEmpty()) {
-               return null;
+    public T removeFirst() {
+        if (isEmpty()) {
+            return null;
         }
-          nextFirst = (nextFirst + 1) % items.length;
-          T item = items[nextFirst];
-            items[nextFirst] = null;
-            size--;
+        nextFirst = (nextFirst + 1) % items.length;
+        T item = items[nextFirst];
+        items[nextFirst] = null;
+        size--;
         if (size > 0 && size == items.length / 4) {
             resize(items.length / 2);
-            }
+        }
         return item;
     }
 
@@ -79,7 +81,7 @@ public class ArrayDeque<T> {
         nextLast = (nextLast - 1 + items.length) % items.length;
         T item = items[nextLast];
         items[nextLast] = null;
-    size--;
+        size--;
         if (size > 0 && size == items.length / 4) {
             resize(items.length / 2);
         }
@@ -89,7 +91,7 @@ public class ArrayDeque<T> {
     public T get(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index:" + index + ", Size: " + size);
-    }
+        }
         return (T) items[index];
 
 
@@ -99,7 +101,7 @@ public class ArrayDeque<T> {
         if (index < 0 || index >= size) {
             return null;
         }
-        return getRecursiveHelper(items, (nextFirst + index) % items.length, index);
+        return getRecursiveHelper(items, (nextFirst + 1) % items.length, index);
     }
 
 

@@ -2,7 +2,7 @@ public class LinkedListDeque<T> {
     private IntNode sentinel;
     private int size;
 
-    public class IntNode {
+    private class IntNode {
         IntNode prev;
         T item;
         IntNode next;
